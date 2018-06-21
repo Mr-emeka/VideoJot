@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vidjot</title>
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    {{>_navbar}}
+    
+    <div class="container">
+        {{>_msg}}
+        {{>_err}}
+        {{{body}}}
+    </div>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</body>
+
+</html>
