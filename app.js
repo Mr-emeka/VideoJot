@@ -114,7 +114,8 @@ app.use('/users', users);
 
 const Port = process.env.PORT || 5000;
 
-app.listen(Port, () => {
+app.listen(process.env.PORT || 3000, (err) => {
+    if(err) throw err
     console.log(`app started on port  ${Port}`);
 
 })
