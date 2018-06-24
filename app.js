@@ -112,10 +112,15 @@ app.get('/about', (req, res) => {
 app.use('/ideas', ideas);
 app.use('/users', users);
 
-const Port = process.env.PORT || 5000;
+// const Port = process.env.PORT || 5000;
 
-app.listen(process.env.PORT || 3000, (err) => {
-    if(err) throw err
-    console.log(`app started on port  ${Port}`);
+// app.listen(process.env.PORT || 3000, (err) => {
+//     if(err) throw err
+//     console.log(`app started on port  ${Port}`);
 
-})
+// })
+
+app.listen(process.env.PORT || 3000, function(){
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+  });
+
