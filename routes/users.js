@@ -6,7 +6,7 @@ const passport = require('passport');
 
 const mongoose = require('mongoose');
 
-const nodemailer = require('nodemailer');
+const mailer = require('../helpers/mailer')
 
 const router = express.Router();
 
@@ -51,7 +51,6 @@ router.post('/register', (req, res) => {
             password2: req.body.password2
         });
     } else {
-        const transporter = nodemailer
         user.findOne({
                 email: req.body.email
             })
@@ -71,7 +70,14 @@ router.post('/register', (req, res) => {
                             newUser.password = hash;
                             newUser.save()
                                 .then(user => {
-                                    req.flash('success_msg', 'You are now registered and can log in');
+                                    //compose an email
+                                    const html = `Hi there,<br/>
+                                    Thank you for registering!!
+                                    <br><br>`;
+                                    mailer.sendMail('Vidjot@admin.com', newUser.email, 'Welcome On Board', html);
+
+
+                                    req.flash('success_msg', 'You are now registered ,please do check your Email');
 
                                     res.redirect('/users/login');
                                 })
@@ -89,6 +95,7 @@ router.post('/register', (req, res) => {
 
 
 });
+
 // Login form Post
 router.post('/login', (req, res, next) => {
     passport.authenticate('local', {
