@@ -68,13 +68,16 @@ router.post('/register', (req, res) => {
                         bcrypt.hash(newUser.password, salt, (err, hash) => {
                             if (err) throw err;
                             newUser.password = hash;
+                            //generate secrete token
+
+
                             newUser.save()
                                 .then(user => {
                                     //compose an email
                                     const html = `Hi there,<br/>
                                     Thank you for registering!!
                                     <br><br>`;
-                                    mailer.sendMail('Vidjot@admin.com', newUser.email, 'Welcome On Board', html);
+                                    transport.sendMail('Vidjot@admin.com', newUser.email, 'Welcome On Board', html);
 
 
                                     req.flash('success_msg', 'You are now registered ,please do check your Email');
