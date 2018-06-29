@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 
 const mailer = require('../helpers/mailer')
 
+
 const router = express.Router();
 
 //load idea model
@@ -73,11 +74,7 @@ router.post('/register', (req, res) => {
 
                             newUser.save()
                                 .then(user => {
-                                    //compose an email
-                                    const html = `Hi there,<br/>
-                                    Thank you for registering!!
-                                    <br><br>`;
-                                    transport.sendMail('Vidjot@admin.com', newUser.email, 'Welcome On Board', html);
+                                    mailer(user);
 
 
                                     req.flash('success_msg', 'You are now registered ,please do check your Email');
