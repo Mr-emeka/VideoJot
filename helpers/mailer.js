@@ -3,7 +3,7 @@ const nodemailer = require('nodemailer');
 const mail = require('../config/mailer');
 
 // Create a SMTP transport object
-var transport = nodemailer.createTransport("SMTP", {
+var transport = nodemailer.createTransport({
     service: 'Gmail',
     auth: {
         user: mail.GMAIL_USER,
