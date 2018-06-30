@@ -39,7 +39,7 @@ const users = require('./routes/users');
 require('./config/passport')(passport);
 
 // View templates
-app.engine('handlebars', handlebars({
+app.engine('handlebars', exphbs({
     defaultLayout: 'main',
     layoutsDir: path.resolve(__dirname, 'views/layouts')
 }));
