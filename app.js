@@ -46,14 +46,14 @@ app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); /
 //static folder
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.set('views', path.join(__dirname, '..', 'views'));
-
+//handlebar middleware
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
+
     layoutsDir: path.join(__dirname, '..', 'views', 'layouts'),
     partialsDir: path.join(__dirname, '..', 'views', 'partials')
-}));
 
+}));
 app.set('view engine', 'handlebars');
 
 //body-parser middleware
