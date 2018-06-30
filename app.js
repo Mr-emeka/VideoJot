@@ -60,14 +60,11 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 
-<<<<<<< HEAD
-=======
 
 
 //static folder
 app.use(express.static(path.join(__dirname, './public')));
 
->>>>>>> fdcb3b76888755ccdfa66a7f5326502a3cfe1419
 //Express session middleware
 app.use(session({
     secret: 'secret',
