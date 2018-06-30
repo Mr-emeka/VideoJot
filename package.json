@@ -1,35 +1,39 @@
 {
-  "name": "vidjot2",
-  "version": "1.0.0",
-  "description": "A simple web App where People can jot their video ideas",
-  "main": "app.js",
-  "scripts": {
-    "start": "node app.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Mr-emeka/VideoJot.git"
-  },
-  "author": "Emeka",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/Mr-emeka/VideoJot/issues"
-  },
-  "homepage": "https://github.com/Mr-emeka/VideoJot#readme",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "bootstrap": "^4.1.1",
-    "connect-flash": "^0.1.1",
-    "express": "^4.16.3",
-    "express-handlebars": "^3.0.0",
-    "express-session": "^1.15.6",
-    "jquery": "^3.3.1",
-    "method-override": "^2.3.10",
-    "mongoose": "^5.1.6",
-    "nodemailer": "^4.6.7",
-    "passport": "^0.4.0",
-    "passport-local": "^1.0.0",
-    "popper.js": "^1.14.3",
-    "xoauth2": "^1.2.0"
-  }
+    "name": "vidjot2",
+    "version": "1.0.0",
+    "engines": {
+        "node": "8.11.1",
+        "npm": "6.1.0"
+    },
+    "description": "A simple web App where People can jot their video ideas",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Mr-emeka/VideoJot.git"
+    },
+    "author": "Emeka",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Mr-emeka/VideoJot/issues"
+    },
+    "homepage": "https://github.com/Mr-emeka/VideoJot#readme",
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "bootstrap": "^4.1.1",
+        "connect-flash": "^0.1.1",
+        "express": "^4.16.3",
+        "express-handlebars": "^3.0.0",
+        "express-session": "^1.15.6",
+        "jquery": "^3.3.1",
+        "method-override": "^2.3.10",
+        "mongoose": "^5.1.6",
+        "nodemailer": "^4.6.7",
+        "passport": "^0.4.0",
+        "passport-local": "^1.0.0",
+        "popper.js": "^1.14.3",
+        "xoauth2": "^1.2.0"
+    }
 }

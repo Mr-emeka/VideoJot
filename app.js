@@ -2,7 +2,7 @@ const express = require('express');
 
 const exphbs = require('express-handlebars');
 
-const  path = require('path');
+const path = require('path');
 
 const methodOverride = require('method-override');
 
@@ -21,10 +21,10 @@ const app = express();
 //DB Config
 const db = require('./config/database');
 
-mongoose.connect(db.MongoURI,{
+mongoose.connect(db.MongoURI, {
 
-}).then(()=>console.log('mongodb connected...'))
-.catch(err=>console.log(err));
+    }).then(() => console.log('mongodb connected...'))
+    .catch(err => console.log(err));
 
 //load idea model
 require('./models/idea');
@@ -80,7 +80,7 @@ app.use(flash());
 app.use(methodOverride('_method'));
 
 //Global variables
-app.use(function (req, res, next) {
+app.use(function(req, res, next) {
     res.locals.success_msg = req.flash('success_msg');
     res.locals.error_msg = req.flash('error_msg');
     res.locals.error = req.flash('error');
@@ -120,7 +120,6 @@ app.use('/users', users);
 
 // })
 
-app.listen(process.env.PORT || 3000, function(){
+app.listen(process.env.PORT || 3000, function() {
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-  });
-
+});

@@ -2,26 +2,31 @@ const nodemailer = require('nodemailer');
 
 const mail = require('../config/mailer');
 
+const xoauth2 = require('xoauth2');
+
 // Create a SMTP transport object
 var transport = nodemailer.createTransport({
-    service: 'Gmail',
+    service: 'gmail',
     auth: {
-        user: mail.GMAIL_USER,
-        pass: mail.GMAIL_PASSWORD
-    },
+        xoauth2: xoauth2.createXOAuth2Generator({
+            user: mail.GMAIL_USER,
+            clientId: mail.CLIENT_ID,
+            clientSecret: mail.CLIENT_SECRET,
+            refreshToken: mail.REFRESH_TOKEN
+
+
+        })
+    }
     // debug: true
 });
 
 // Message object
 var message = {
     // sender info
-    from: 'Sender Name <sender@example.com>',
+    from: 'No reply email <vidjot@gmail.com>',
     to: '',
     // subject of the message
     subject: 'Thanks for registering',
-    headers: {
-        'X-Laziness-level': 1000
-    },
     html: ''
 }
 
@@ -33,7 +38,7 @@ module.exports = function(user) {
     // Recipt list
     message.to = user.email;
     // HTML body
-    message.html = `<h1>Welcome On board !!!</h1>`
+    message.html = '<h1>Welcome On board !!!</h1>'
 
     console.log('sending email');
     transport.sendMail(message, function(err) {
