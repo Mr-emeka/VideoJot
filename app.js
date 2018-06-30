@@ -43,6 +43,9 @@ app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
 app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); // redirect bootstrap JS
 
+//static folder
+app.use(express.static(path.join(__dirname, 'public')));
+
 //handlebar middleware
 app.engine('handlebars', exphbs({
     defaultLayout: 'main'
@@ -55,11 +58,6 @@ app.use(bodyParser.urlencoded({
     extended: false
 }));
 app.use(bodyParser.json());
-
-
-
-//static folder
-app.use(express.static(path.join(__dirname, 'public')));
 
 //Express session middleware
 app.use(session({
