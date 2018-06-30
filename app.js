@@ -41,10 +41,10 @@ require('./config/passport')(passport);
 // View templates
 app.engine('handlebars', exphbs({
     defaultLayout: 'main',
-    layoutsDir: path.resolve(__dirname, 'views/layouts')
+
 }));
 app.set('view engine', 'handlebars');
-app.set('views', path.resolve(__dirname, 'views'));
+
 
 //bootstrap
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
