@@ -19,13 +19,13 @@ const user = mongoose.model('users');
 
 //User login Route
 router.get('/login', (req, res) => {
-    res.render('users/Login');
+    res.render('users/login');
 
 });
 
 //User register Route
 router.get('/register', (req, res) => {
-    res.render('users/Register');
+    res.render('users/register');
 
 });
 

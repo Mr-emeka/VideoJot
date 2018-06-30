@@ -59,7 +59,7 @@ app.use(bodyParser.json());
 
 
 //static folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, './public')));
 
 //Express session middleware
 app.use(session({
