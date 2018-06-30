@@ -38,6 +38,14 @@ const users = require('./routes/users');
 //passport config
 require('./config/passport')(passport);
 
+// View templates
+app.engine('handlebars', handlebars({
+    defaultLayout: 'main',
+    layoutsDir: path.resolve(__dirname, 'views/layouts')
+}));
+app.set('view engine', 'handlebars');
+app.set('views', path.resolve(__dirname, 'views'));
+
 //bootstrap
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css')); // redirect CSS bootstrap
 app.use('/js', express.static(__dirname + '/node_modules/jquery/dist')); // redirect JS jQuery
@@ -45,13 +53,6 @@ app.use('/js', express.static(__dirname + '/node_modules/bootstrap/dist/js')); /
 
 //static folder
 app.use(express.static(path.join(__dirname, 'public')));
-
-//handlebar middleware
-app.engine('handlebars', exphbs({
-    defaultLayout: 'main',
-
-}));
-app.set('view engine', 'handlebars');
 
 //body-parser middleware
 app.use(bodyParser.urlencoded({
