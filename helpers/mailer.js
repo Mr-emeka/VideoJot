@@ -21,29 +21,32 @@ var transport = nodemailer.createTransport({
 });
 
 // Message object
-var message = {
+const mailOption = {
     // sender info
     from: 'No reply email <vidjot@gmail.com>',
     to: '',
     // subject of the message
     subject: 'Thanks for registering',
-    html: ''
+    html: ``,
 }
 
-module.exports = function(user) {
+module.exports = function(newUser) {
 
-    if (typeof user === 'undefined')
+    if (typeof newUser === 'undefined')
         return;
+    // console.log(newUser);
 
     // Recipt list
-    message.to = user.email;
+    mailOption.to = newUser.email;
     // HTML body
-    message.html = '<h1>Welcome On board !!!</h1>'
+    mailOption.html = `<h1>Welcome On board !!!</h1>`
 
     console.log('sending email');
-    transport.sendMail(message, function(err) {
+    transport.sendMail(mailOption, function(err) {
+        console.log(mailOption);
+
         if (err) {
-            console.log(err.message);
+            console.log(err.mailOption);
             return;
         }
         console.log('Message sent successfully!');
